@@ -47,3 +47,18 @@ int main(void)
     printf("Hash[%d]=%d\n",i,Hash[i]);
   }
 }
+/*
+-----OUTPUT-----
+Enter the number of elements to be entered in the hash table: 4
+Size is 5
+Enter the elements to be entered into the Hash table : 1
+62
+63
+20
+53
+Hash[0]=20
+Hash[1]=1
+Hash[2]=62
+Hash[3]=63
+Hash[4]=53
+*/
