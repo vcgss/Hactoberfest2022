@@ -1,0 +1,58 @@
+#include <stdio.h>
+ 
+void cycle_sort(int *,int a);
+ 
+void main()
+{
+    int MAX ;
+    printf("enter the no of elements in array to be sorted : ");
+    scanf("%d",&MAX);
+    int a[MAX],i;
+ 
+    printf("enter the elements into array :");
+    for (i = 0;i <MAX; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    cycle_sort(a,MAX);
+    printf("sorted elements are :\n");
+    for (i = 0;i < MAX; i++)
+    {
+        printf(" %d ", a[i]);
+    }
+}
+ 
+/* sorts elements using cycle sort algorithm */
+void cycle_sort(int * a,int max)
+{
+ int temp, item, pos, i, j, k,MAX;
+ MAX=max;
+ 
+    for (i = 0;i < MAX; i++)
+    {
+        item = a[i];
+        pos = i;
+        do
+        {
+            k = 0;
+            for (j = 0;j < MAX;j++)
+            {
+                if (pos != j && a[j] < item)
+                {
+                    k++;
+                }
+            }
+            if (pos != k)
+            {
+                while (pos != k && item == a[k])
+                {
+                    k++;
+                }
+                temp = a[k];
+                a[k] = item;
+                item = temp;
+                pos = k;
+            }
+        }while (pos != i);
+    }
+}
